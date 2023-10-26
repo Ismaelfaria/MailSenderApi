@@ -3,12 +3,12 @@ using System.Net.Mail;
 
 namespace MailSenderAPI.infra.Services
 {
-    public class MailService
+    public class MailService : IMailService
     {
         private string smtpAddress => "smtp.gmail.com";
         private int portNumber => 587;
         private string emailFromAddress => "limaismael8901@gmail.com";
-        private string password => "A1l2dija";
+        private string password => "idme fklj regw cfkj";
 
         public void AddEmailsToMailmensager(MailMessage mailMessage, string[] emails)
         {
@@ -27,6 +27,7 @@ namespace MailSenderAPI.infra.Services
                 mailMessage.Subject = subject;
                 mailMessage.Body = body;
                 mailMessage.IsBodyHtml = isHtml;
+
                 using(SmtpClient smtp = new SmtpClient(smtpAddress, portNumber))
                 {
                     smtp.EnableSsl = true;
